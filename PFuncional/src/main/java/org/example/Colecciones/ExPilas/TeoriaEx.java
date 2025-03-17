@@ -1,5 +1,5 @@
 
-package org.example.ExPilas.TeoríaColecciones;
+package org.example.Colecciones.ExPilas;
 
 import java.util.Scanner;
 import java.util.Stack;
@@ -74,7 +74,7 @@ public class TeoriaEx {
 
         for ( int i = 0 ; i<chain.length() ; i++ ){
 
-            if (chainValue[i].equals("(")){
+            if (chainValue[i].equals("(") || chainValue[i].equals(")") && !pila.contains("(")){
 
                 pila.push(chainValue[i]);
 
