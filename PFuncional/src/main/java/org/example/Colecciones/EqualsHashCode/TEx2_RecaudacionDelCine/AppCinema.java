@@ -1,13 +1,13 @@
 package org.example.Colecciones.EqualsHashCode.TEx2_RecaudacionDelCine;
 
-import java.util.LinkedHashSet;
 import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Random;
 
 public class AppCinema {
 
     static Random random = new Random();
-    static LinkedList<Person> listPersons = new LinkedList<>();
+    static Queue<Person> listPersons = new LinkedList<>();
 
     public static void main(String[] args) {
 
@@ -25,8 +25,6 @@ public class AppCinema {
             listPersons.add(new Person(age));
 
         }
-
-
 
         System.out.println("Hay " + total + " personas a la cola, " + listPersons);
         System.out.println("La recaudacion ha sido de " + totalAmount() + "€");
@@ -51,12 +49,12 @@ public class AppCinema {
     }
 
     public static double totalAmount(){
-        double total = 0;
+        double totalAmount = 0;
         while (!listPersons.isEmpty()){
 
-            total += moneyPerAge(listPersons.removeFirst().getAge());
+            totalAmount += moneyPerAge(listPersons.poll().getAge());
 
         }
-        return total;
+        return totalAmount;
     }
 }
