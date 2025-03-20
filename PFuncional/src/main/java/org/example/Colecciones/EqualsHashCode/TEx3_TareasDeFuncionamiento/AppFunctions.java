@@ -59,9 +59,9 @@ public class AppFunctions {
             int temp = 0;
 
             for (Reports rep : reportsStack){
-                if (reportsHashSet.remove()){
+                //if (reportsHashSet.remove()){
 
-                }
+                //}
             }
         }
 
