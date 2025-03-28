@@ -1,4 +1,4 @@
-package org.example.Colecciones.ExMapasODiccionarios.T3ExMaps;
+package org.example.Colecciones.AceptaElReto;
 
 import java.util.HashMap;
 import java.util.Map;
