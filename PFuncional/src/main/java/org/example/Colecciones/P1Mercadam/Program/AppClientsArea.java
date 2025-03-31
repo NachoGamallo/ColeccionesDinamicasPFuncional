@@ -1,4 +1,4 @@
-package org.example.Colecciones.P1Mercadam;
+package org.example.Colecciones.P1Mercadam.Program;
 
 import java.util.List;
 import java.util.Random;

@@ -1,4 +1,4 @@
-package org.example.Colecciones.P1Mercadam;
+package org.example.Colecciones.P1Mercadam.Program;
 
 public enum Product {
 

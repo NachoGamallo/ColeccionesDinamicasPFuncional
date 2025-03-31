@@ -1,0 +1,32 @@
+@startuml
+
+class AreaMetropolitana {
+    - nombre: String
+    - estadoProvincia: String
+    - pais: String
+}
+
+class Hotel {
+    - nombre: String
+    - direccion: String
+    - numHabitaciones: int
+    - numTelefono: String
+    - numEstrellas: int
+    - precioSimple: double
+    - precioDoble: double
+}
+
+class CadenaHotelera {
+    - nombre: String
+    - director: String
+}
+
+class TarjetaCredito {
+    - nombre: String
+}
+
+AreaMetropolitana "1" *-- "many" Hotel : contiene
+Hotel "many" -- "1" CadenaHotelera : pertenece a
+Hotel "many" -- "many" TarjetaCredito : acepta
+
+@enduml

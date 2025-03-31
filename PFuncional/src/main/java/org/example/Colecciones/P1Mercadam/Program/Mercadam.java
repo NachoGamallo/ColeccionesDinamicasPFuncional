@@ -1,10 +1,10 @@
-package org.example.Colecciones.P1Mercadam;
+package org.example.Colecciones.P1Mercadam.Program;
 
 import java.util.*;
 
 public class Mercadam {
 
-    private List < Client > clients;
+    private List <Client> clients;
 
     public Mercadam(){
 
