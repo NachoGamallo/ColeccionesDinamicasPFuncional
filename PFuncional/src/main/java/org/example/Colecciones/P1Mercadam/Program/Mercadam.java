@@ -4,19 +4,25 @@ import java.util.*;
 
 public class Mercadam {
 
-    private List <Client> clients;
+    private Set <Client> clients;
 
     public Mercadam(){
 
-        this.clients = new LinkedList<>();
+        this.clients = new LinkedHashSet<>();
     }
 
     public void addClient(Client client){
         this.clients.add(client);
     }
 
-    public List < Client > getClients(){
-        return Collections.unmodifiableList(this.clients);
+    public Set<Client> getClients(){
+        return Collections.unmodifiableSet(this.clients);
     }
 
+    @Override
+    public String toString() {
+        return "Mercadam{" +
+                "clients=" + clients +
+                '}';
+    }
 }

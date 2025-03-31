@@ -1,12 +1,11 @@
 package org.example.Colecciones.P1Mercadam.Program;
 
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class AppClientsArea {
 
     static Random random = new Random();
+    static String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     static Client client;
     static Scanner entry = new Scanner(System.in);
 
@@ -16,31 +15,61 @@ public class AppClientsArea {
 
     public static void printFarewell(){}
 
-    public static void authentication(List < Client > clients){
-        System.out.println("*** COMPRA ONLINE DE MERCADAM ***");
-        System.out.print("Usuario: ");
-        String user = entry.next();
-        System.out.print("Contraseña: ");
-        String password = entry.next();
+    public static boolean authentication(Set < Client > clients, int count){
 
-        boolean status = false;
-        for (Client client : clients){
-            if (client.getUser().equals(user) && client.getPassword().equals(password)){
-                status = true;
-                break;
+        if (count < 3){
+
+            System.out.println("*** COMPRA ONLINE DE MERCADAM ***");
+            System.out.print("Usuario: ");
+            String user = entry.next();
+            System.out.print("Contraseña: ");
+            String password = entry.next();
+
+            boolean status = false;
+            for (Client client : clients){
+                if (client.getUser().equals(user) && client.getPassword().equals(password)){
+                    status = true;
+                    break;
+                }
             }
-        }
-        if (status){
-            System.out.println("El usuario si existe.");
+            if (status){
+
+                System.out.println("BIENVENID@ " );
+                return true;
+
+            }else {
+
+                System.out.println("Algo no coincide o no existe! Vuelve a intentarlo...");
+                authentication(clients,++count);
+            }
+
         }else {
-            System.out.println("El usuario no existe.");
+
+            System.out.println("ERROR DE AUTENTICACIÓN");
+            return false;
+
         }
+        return false;
+    }
+
+    public static String generatePassword(){
+        StringBuilder password = new StringBuilder();
+
+        for (int i = 0; i < 8 ; i++ ){
+
+            String temp = String.valueOf(characters.charAt(random.nextInt(characters.length())));
+            password.append(temp);
+
+        }
+
+        return password.toString();
     }
     public static void main(String[] args) {
 
         Mercadam mercadam = new Mercadam();
         mercadam.addClient(new Client("nacho","12345678",null,false));
-        authentication(mercadam.getClients());
+        mercadam.addClient(new Client("test",generatePassword(),null,false));
+        authentication(mercadam.getClients(),0);
 
     }
 }

@@ -1,10 +1,12 @@
 package org.example.Colecciones.P1Mercadam.Program;
 
 import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Objects;
 
 @Getter
+@ToString
 public class Client {
 
     final String FALSE_ADDRESS = "CALLE FALSA, 123";
@@ -55,4 +57,5 @@ public class Client {
     public int hashCode() {
         return Objects.hash(user, password);
     }
+
 }
