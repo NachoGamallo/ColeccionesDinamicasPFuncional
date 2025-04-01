@@ -9,9 +9,46 @@ public class AppClientsArea {
     static Client actualClient;
     static Scanner entry = new Scanner(System.in);
 
-    public static void initiateBuy(){}
+    public static void clearConsole(){
 
-    public static void printProducts(){}
+        try {
+
+            Thread.sleep(2000);
+
+        }catch (InterruptedException e){
+
+            e.printStackTrace();
+
+        }
+        System.out.println("\033[H\033[2J");
+    }
+    public static void initiateBuy(){
+
+        actualClient.createOrder();
+        System.out.println("A;ade productos a tu lista de la compra...");
+        printProducts();
+        System.out.print("    Elige un producto:");
+
+    }
+
+    public static void printProducts(){
+
+        int lastEnum = Product.values().length - 1;
+        int temp = 0;
+
+        System.out.println("====================================");
+
+        for (Product p : Product.values()){
+
+            System.out.print("    " + p + " precio (" + p.getPrice() + "€)");
+            System.out.println(temp < lastEnum ? "," : ";");
+            temp++;
+
+        }
+
+        System.out.println("====================================");
+
+    }
 
     public static void printFarewell(){}
 
@@ -35,7 +72,8 @@ public class AppClientsArea {
             }
             if (status){
 
-                System.out.println("BIENVENID@ " + actualClient.getUser());
+                System.out.println("BIENVENID@ " + actualClient.getUser() + "!");
+                clearConsole();
                 return true;
 
             }else {
@@ -74,13 +112,17 @@ public class AppClientsArea {
 
         return password.toString();
     }
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws InterruptedException {
 
         Mercadam mercadam = new Mercadam();
         mercadam.addClient(new Client("nacho","12345678",null,false));
         mercadam.addClient(new Client("test",generatePassword(),null,false));
+
         if(authentication(mercadam.getClients(),0)){
+
             initiateBuy();
+
         }
 
     }

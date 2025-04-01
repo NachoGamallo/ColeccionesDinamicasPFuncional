@@ -1,7 +1,9 @@
 package org.example.Colecciones.P1Mercadam.Program;
 
+import lombok.ToString;
 import java.util.*;
 
+@ToString
 public class Mercadam {
 
     private Set <Client> clients;
@@ -19,10 +21,4 @@ public class Mercadam {
         return Collections.unmodifiableSet(this.clients);
     }
 
-    @Override
-    public String toString() {
-        return "Mercadam{" +
-                "clients=" + clients +
-                '}';
-    }
 }

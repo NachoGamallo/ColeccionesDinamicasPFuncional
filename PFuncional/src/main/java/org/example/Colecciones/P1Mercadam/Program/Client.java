@@ -38,7 +38,11 @@ public class Client {
 
 
 
-    public void createOrder(){}
+    public void createOrder(){
+
+        this.order = new Order();
+
+    }
 
     public void insertProduct(){}
 

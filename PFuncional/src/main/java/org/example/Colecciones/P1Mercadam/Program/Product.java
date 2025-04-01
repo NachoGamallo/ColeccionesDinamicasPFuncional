@@ -1,5 +1,8 @@
 package org.example.Colecciones.P1Mercadam.Program;
 
+import lombok.Getter;
+
+@Getter
 public enum Product {
 
     MANZANAS(2.30),
@@ -16,5 +19,7 @@ public enum Product {
     private double price;
 
 
-    Product(double price) {}
+    Product(double price) {
+        this.price = price;
+    }
 }

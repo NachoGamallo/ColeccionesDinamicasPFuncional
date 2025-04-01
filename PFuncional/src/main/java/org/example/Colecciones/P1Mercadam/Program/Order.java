@@ -4,8 +4,14 @@ import java.util.HashMap;
 
 public class Order {
 
-    HashMap < Product , Integer > order;
+    final int DEFAULT_VALUE = 0;
+    HashMap < Product , Integer > productsList;
     double totalAmount;
+
+    public Order(){
+        this.productsList = new HashMap<>();
+        this.totalAmount = DEFAULT_VALUE;
+    }
 
     public void applyPromo3x2(){}
 
