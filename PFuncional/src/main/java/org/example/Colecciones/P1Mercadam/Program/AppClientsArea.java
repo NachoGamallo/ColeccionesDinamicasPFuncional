@@ -6,7 +6,7 @@ public class AppClientsArea {
 
     static Random random = new Random();
     static String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    static Client client;
+    static Client actualClient;
     static Scanner entry = new Scanner(System.in);
 
     public static void initiateBuy(){}
@@ -29,18 +29,28 @@ public class AppClientsArea {
             for (Client client : clients){
                 if (client.getUser().equals(user) && client.getPassword().equals(password)){
                     status = true;
+                    actualClient = client;
                     break;
                 }
             }
             if (status){
 
-                System.out.println("BIENVENID@ " );
+                System.out.println("BIENVENID@ " + actualClient.getUser());
                 return true;
 
             }else {
 
-                System.out.println("Algo no coincide o no existe! Vuelve a intentarlo...");
-                authentication(clients,++count);
+                if (count == 2){
+
+                    authentication(clients,++count);
+
+                }else {
+
+                    System.out.println("Algo no coincide o no existe! Vuelve a intentarlo...");
+                    authentication(clients,++count);
+
+                }
+
             }
 
         }else {
@@ -69,7 +79,9 @@ public class AppClientsArea {
         Mercadam mercadam = new Mercadam();
         mercadam.addClient(new Client("nacho","12345678",null,false));
         mercadam.addClient(new Client("test",generatePassword(),null,false));
-        authentication(mercadam.getClients(),0);
+        if(authentication(mercadam.getClients(),0)){
+            initiateBuy();
+        }
 
     }
 }
