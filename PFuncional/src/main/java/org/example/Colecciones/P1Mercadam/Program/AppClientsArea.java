@@ -9,25 +9,28 @@ public class AppClientsArea {
     static Client actualClient;
     static Scanner entry = new Scanner(System.in);
 
-    public static void clearConsole(){
+    public static void clearConsole() throws InterruptedException {
 
         try {
-
-            Thread.sleep(2000);
-
-        }catch (InterruptedException e){
-
-            e.printStackTrace();
-
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        } catch (Exception e) {
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
         }
-        System.out.println("\033[H\033[2J");
+
+        Thread.sleep(200);
     }
     public static void initiateBuy(){
 
-        actualClient.createOrder();
-        System.out.println("A;ade productos a tu lista de la compra...");
+        if (actualClient.getOrder() == null){
+            actualClient.createOrder();
+        }
+        System.out.println("Añade productos a tu lista de la compra...");
         printProducts();
         System.out.print("    Elige un producto:");
+        if (!actualClient.insertProduct(entry.next())){
+            initiateBuy();
+        }
 
     }
 
@@ -52,7 +55,7 @@ public class AppClientsArea {
 
     public static void printFarewell(){}
 
-    public static boolean authentication(Set < Client > clients, int count){
+    public static boolean authentication(Set < Client > clients, int count) throws InterruptedException {
 
         if (count < 3){
 
@@ -124,6 +127,5 @@ public class AppClientsArea {
             initiateBuy();
 
         }
-
     }
 }

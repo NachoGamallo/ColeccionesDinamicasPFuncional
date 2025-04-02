@@ -1,7 +1,11 @@
 package org.example.Colecciones.P1Mercadam.Program;
 
+import lombok.Getter;
+import lombok.ToString;
 import java.util.HashMap;
 
+@Getter
+@ToString
 public class Order {
 
     final int DEFAULT_VALUE = 0;
@@ -17,4 +21,7 @@ public class Order {
 
     public void applyPromo10(){}
 
+    public void addProduct(Product product, Integer num){
+        this.productsList.put( product , this.productsList.getOrDefault(product,0) + num);
+    }
 }

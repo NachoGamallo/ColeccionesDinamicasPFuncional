@@ -9,8 +9,6 @@ public class Bus {
 
     public static void main(String[] args) throws InterruptedException {
 
-        int a = 0; // POSICIÓN INICIAL DEL AUTOBÚS MUTXA
-        int b = 0; // POSICIÓN INICIAL DEL AUTOBUS SAN VICENTE
         int mutxa = 0;
         int sanvi = 0;
 

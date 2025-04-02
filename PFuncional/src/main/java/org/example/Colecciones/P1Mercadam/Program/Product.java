@@ -15,11 +15,11 @@ public enum Product {
     TOMATES(4.00),
     PASTA(0.89);
 
-
-    private double price;
+    private final double price;
 
 
     Product(double price) {
         this.price = price;
     }
+
 }
