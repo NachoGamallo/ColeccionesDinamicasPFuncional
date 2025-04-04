@@ -40,7 +40,7 @@ El programa estara dividido en dos partes:
 ## Pruebas.
 
 Estas pruebas estarán **subidas a Youtube**, pincha en el enlace de abajo.
-### [Enlace Vídeo]()
+### [Enlace Vídeo](https://youtu.be/vlVUTQojziI)
 
 ## Entrega.
 
