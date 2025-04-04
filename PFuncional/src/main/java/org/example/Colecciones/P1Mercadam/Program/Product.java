@@ -1,11 +1,10 @@
 package org.example.Colecciones.P1Mercadam.Program;
 
 import lombok.Getter;
-
 @Getter
 public enum Product {
 
-    MANZANAS(2.30),
+    qMANZANAS(2.30),
     PAN(1.00),
     ARROZ(3.50),
     POLLO(4.30),
@@ -17,10 +16,7 @@ public enum Product {
 
     private final double price;
 
-
     Product(double price) {
         this.price = price;
     }
-
 }
- 

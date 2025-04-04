@@ -20,12 +20,15 @@ public class AppClientsArea {
 
         Thread.sleep(200);
     }
+
     public static void initiateBuy(){
 
         if (actualClient.getOrder() == null){
             actualClient.createOrder();
         }
+
         System.out.println("Añade productos a tu lista de la compra...");
+
         printProducts();
         System.out.print("    Elige un producto:");
         if (!actualClient.insertProduct(entry.next())){
@@ -53,9 +56,50 @@ public class AppClientsArea {
 
     }
 
-    public static void printFarewell(){}
+    public static void printFarewell(){
+        System.out.println("GRACIAS POR SU PEDIDO. Se lo mandaremos a la direccion " + actualClient.getAddress());
+    }
+
+    public static void afterBuyPrint(){
+
+        System.out.println("=======================================");
+        System.out.println("QUE DESEA HACER?");
+        System.out.println("[1]. Aplicar promo");
+        System.out.println("[2]. Mostrar resumen ordenado por uds.");
+        System.out.println("[3]. Terminar pedido");
+        System.out.println("=======================================");
+        System.out.print("Eige una opcion: ");
+        if (!afterBuyMenu(entry.next())){
+            afterBuyPrint();
+        }
+    }
+
+    public static boolean afterBuyMenu(String option){
+
+        switch (option) {
+            case "1" -> {
+                actualClient.applyPromo();
+                actualClient.ProductsResume();
+                return false;
+            }
+            case "2" -> {
+                actualClient.sortedProductsList();
+                return false;
+            }
+            case "3" -> {
+                printFarewell();
+                return true;
+            }
+            default -> {
+                System.out.println("Ha introducido una opcion que no esta en el menu...");
+                return false;
+            }
+        }
+    }
 
     public static boolean authentication(Set < Client > clients, int count) throws InterruptedException {
+
+        boolean statusFunction = false;
 
         if (count < 3){
 
@@ -97,10 +141,10 @@ public class AppClientsArea {
         }else {
 
             System.out.println("ERROR DE AUTENTICACIÓN");
-            return false;
+            return statusFunction;
 
         }
-        return false;
+        return statusFunction;
     }
 
     public static String generatePassword(){
@@ -119,12 +163,13 @@ public class AppClientsArea {
     public static void main(String[] args) throws InterruptedException {
 
         Mercadam mercadam = new Mercadam();
-        mercadam.addClient(new Client("nacho","12345678",null,false));
+        mercadam.addClient(new Client("nacho","12345678",null,true));
         mercadam.addClient(new Client("test",generatePassword(),null,false));
 
         if(authentication(mercadam.getClients(),0)){
 
             initiateBuy();
+            afterBuyPrint();
 
         }
     }

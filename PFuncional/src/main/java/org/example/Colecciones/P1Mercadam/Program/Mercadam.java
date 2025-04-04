@@ -6,7 +6,7 @@ import java.util.*;
 @ToString
 public class Mercadam {
 
-    private Set <Client> clients;
+    private final Set <Client> clients;
 
     public Mercadam(){
 
