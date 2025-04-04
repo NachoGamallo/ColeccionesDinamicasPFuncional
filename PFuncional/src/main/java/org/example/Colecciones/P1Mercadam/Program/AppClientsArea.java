@@ -206,6 +206,7 @@ public class AppClientsArea {
 
         }
 
+        System.out.println(password);
         return password.toString();
     }
 
@@ -221,6 +222,7 @@ public class AppClientsArea {
         Mercadam mercadam = new Mercadam();
         mercadam.addClient(new Client("nacho","12345678",null,true));
         mercadam.addClient(new Client("test",generatePassword(),null,false));
+        mercadam.addClient(new Client("Angel",generatePassword(),null,true,"Calle del badulaque"));
 
         if(authentication(mercadam.getClients())){
 

@@ -6,9 +6,8 @@
 
 1. [Resumen](#resumen)
 2. [Estructura de Clases](#estructura-de-clases)
-3. [Programa final](#programa-final)
-4. [Pruebas](#pruebas)
-5. [Entrega](#entrega)
+3. [Pruebas](#pruebas)
+4. [Entrega](#entrega)
 
 ## Resumen.
 
@@ -26,7 +25,7 @@ El programa estara dividido en dos partes:
 > de este. Puede ser tanto a nivel de código (comentarios) 
 > como explicación externa de funcionamiento.
 
-### Referencias a las clases:
+### Referencias a las clases **(documentadas)**:
 
 - [App Clientes](https://github.com/NachoGamallo/ColeccionesDinamicasPFuncional/blob/main/PFuncional/src/main/java/org/example/Colecciones/P1Mercadam/Program/AppClientsArea.java)
 - [MERCADAM](https://github.com/NachoGamallo/ColeccionesDinamicasPFuncional/blob/main/PFuncional/src/main/java/org/example/Colecciones/P1Mercadam/Program/Mercadam.java)
@@ -35,8 +34,6 @@ El programa estara dividido en dos partes:
 - [Productos](https://github.com/NachoGamallo/ColeccionesDinamicasPFuncional/blob/main/PFuncional/src/main/java/org/example/Colecciones/P1Mercadam/Program/Product.java)
 ### Diagrama de Flujo del Programa:
 ![img/DiagramaAppMERCADAM.png](img/DiagramaAppMERCADAM.png)
-
-## Programa final, explicación de cada uno de los puntos/clases en el díagrama.
 
 
 
