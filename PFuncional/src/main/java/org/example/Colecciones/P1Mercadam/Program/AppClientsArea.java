@@ -72,6 +72,7 @@ public class AppClientsArea {
         if (!afterBuyMenu(entry.next())){
             afterBuyPrint();
         }
+
     }
 
     public static boolean afterBuyMenu(String option){
@@ -99,9 +100,7 @@ public class AppClientsArea {
 
     public static boolean authentication(Set < Client > clients, int count) throws InterruptedException {
 
-        boolean statusFunction = false;
-
-        if (count < 3){
+        while (count < 3){
 
             System.out.println("*** COMPRA ONLINE DE MERCADAM ***");
             System.out.print("Usuario: ");
@@ -125,26 +124,18 @@ public class AppClientsArea {
 
             }else {
 
-                if (count == 2){
-
-                    authentication(clients,++count);
-
-                }else {
+                count++;
+                if (count < 3){
 
                     System.out.println("Algo no coincide o no existe! Vuelve a intentarlo...");
-                    authentication(clients,++count);
 
                 }
-
             }
-
-        }else {
-
-            System.out.println("ERROR DE AUTENTICACIÓN");
-            return statusFunction;
-
         }
-        return statusFunction;
+
+        System.out.println("ERROR DE AUTENTICACIÓN");
+        return false;
+
     }
 
     public static String generatePassword(){

@@ -57,7 +57,7 @@ public class Client {
 
                 System.out.println("Has añadido " + p + " con un precio de " + p.getPrice() + " €. Importe total del carrito: "
                         + String.format("%.2f",orderAmount()) + "€. Quieres añadir mas productos a tu carrito de la compra? [S/N]");
-                return optionOrder(entry.next());
+                return optionOrder();
             }
         }
 
@@ -65,22 +65,24 @@ public class Client {
         return false;
     }
 
-    private boolean optionOrder(String option){
-        boolean status = false;
-        switch (option){
-            case "S":
-                return status;
+    private boolean optionOrder(){
 
-            case "N":
-                ProductsResume();
-                return true;
+        while (true){
 
-            default:
-                System.out.println("Opcion no valida, introduce una opcion correcta [S/N]");
-                optionOrder(entry.next());
+            String option = entry.next().toUpperCase();
 
+            switch (option){
+                case "S":
+                    return false;
+
+                case "N":
+                    ProductsResume();
+                    return true;
+
+                default:
+                    System.out.println("Opcion no valida, introduce una opcion correcta [S/N]");
+            }
         }
-        return status;
     }
 
     public double orderAmount(){//Bucle en una sola linea, sin necesidad de for usamos stream para recorrer el Map, convertimos
