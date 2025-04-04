@@ -1,0 +1,80 @@
+@startuml
+
+class AppClientsArea {
+  - static Random random
+  - static String characters
+  - static Client actualClient
+  - static Scanner entry
+  + clearConsole() : void
+  + initiateBuy() : void
+  + printProducts() : void
+  + printFarewell() : void
+  + afterBuyPrint() : void
+  + afterBuyMenu(option: String) : boolean
+  + authentication(clients: Set<Client>, count: int) : boolean
+  + generatePassword() : String
+  + main(args: String[]) : void
+}
+
+class Client {
+  - static Scanner entry
+  - final String FALSE_ADDRESS
+  - String user
+  - String password
+  - Order order
+  - boolean promo
+  - String address
+  + Client(user: String, password: String, order: Order, promo: boolean)
+  + Client(user: String, password: String, order: Order, promo: boolean, address: String)
+  + createOrder() : void
+  + insertProduct(userProduct: String) : boolean
+  + orderAmount() : double
+  + ProductsResume() : void
+  + getPromo() : boolean
+  + applyPromo() : void
+  + sortedProductsList() : void
+}
+
+class Mercadam {
+  - Set<Client> clients
+  + Mercadam()
+  + addClient(client: Client) : void
+  + getClients() : Set<Client>
+}
+
+class Order {
+  - final int DEFAULT_VALUE
+  - HashMap<Product, Integer> productsList
+  - double totalAmount
+  + Order()
+  + addProduct(product: Product, num: Integer) : void
+  + getProducts() : void
+  + getSortedProducts() : void
+  + checkClientPromo(client: Client) : void
+}
+
+enum Product {
+  MANZANAS
+  PAN
+  ARROZ
+  POLLO
+  LECHE
+  ACEITE
+  HUEVOS
+  TOMATES
+  PASTA
+}
+
+' Relaciones
+AppClientsArea --> Client : usa
+AppClientsArea --> Mercadam : usa
+AppClientsArea --> Product : usa
+
+Client --> Order : crea (a través de createOrder())
+Client --> Product : interactúa
+
+Mercadam --> "0..*" Client : contiene
+
+Order --> "0..*" Product : contiene
+
+@enduml

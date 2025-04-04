@@ -76,7 +76,7 @@ public class Client {
                     return false;
 
                 case "N":
-                    ProductsResume();
+                    productsResume();
                     return true;
 
                 default:
@@ -92,7 +92,7 @@ public class Client {
                 .mapToDouble(line -> (line.getKey().getPrice()*line.getValue())).sum();
     }
 
-    public void ProductsResume(){
+    public void productsResume(){
 
         System.out.println("=====================================");
         System.out.println("RESUMEN DE TU CARRITO DE LA COMPRA:");
