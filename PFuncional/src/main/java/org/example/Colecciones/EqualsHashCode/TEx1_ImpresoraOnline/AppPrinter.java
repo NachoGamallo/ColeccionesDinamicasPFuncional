@@ -11,11 +11,11 @@ public class AppPrinter {
     public static void main(String[] args) {
 
         System.out.println("*** BIENVENIDO A LA IMPRESORA ONLINE ***");
-        AddDocument("Prueba.pdf");
+        AddDocument("Ex1T.pdf");
         AddDocument("Prueba2.pdf");
         AddDocument("mondongo.doc");
-        AddDocument("Prueba.pdF");
-        AddDocument("Prueba.pdf");
+        AddDocument("Ex1T.pdF");
+        AddDocument("Ex1T.pdf");
         AddDocument("mammahuevo.pdf");
         AddDocument("DonPollo.pdf");
         AddDocument("MonDonGo.pdf");
