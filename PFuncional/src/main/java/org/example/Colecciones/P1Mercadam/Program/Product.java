@@ -4,7 +4,7 @@ import lombok.Getter;
 @Getter
 public enum Product {//Productos disponibles para la venta de los clientes, con su respectivo precio.
 
-    qMANZANAS(2.30),
+    MANZANAS(2.30),
     PAN(1.00),
     ARROZ(3.50),
     POLLO(4.30),
