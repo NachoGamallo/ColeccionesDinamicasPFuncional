@@ -7,9 +7,9 @@ import lombok.Setter;
 @Setter
 public class Pokedex {
     private String pokemon;
-    private int entrenadores;
+    private Integer entrenadores;
 
-    public Pokedex(String pokemon, int entrenadores){
+    public Pokedex(String pokemon, Integer entrenadores){
 
         this.entrenadores = entrenadores;
         this.pokemon = pokemon;

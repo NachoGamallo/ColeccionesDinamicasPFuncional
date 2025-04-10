@@ -12,14 +12,14 @@ public class AppPokemon {
 
         Pokemon magikarp = new Pokemon() {
             @Override
-            public void atacar(int lvl , Pokedex poke) {
+            public void atacar(Integer lvl , Pokedex poke) {
                 System.out.println("SALPICADURA de nivel " + lvl + " ataca a " + poke.getPokemon());
             }
         };
 
         magikarp.atacar(15,pokedex);
 
-        Pokemon pikachu = (int lvl , Pokedex poke) -> {
+        Pokemon pikachu = (Integer lvl , Pokedex poke) -> {
             System.out.println("IMPACTRUENO de nivel " + lvl + " ataca a " + poke.getPokemon());
             System.out.println("Pica Pica");
         };
@@ -31,7 +31,7 @@ public class AppPokemon {
         listaPokes.add(pokedex);
         listaPokes.add(new Pokedex("Bulbasur",15));
 
-        listaPokes.sort((x,y) -> x);
+        listaPokes.sort((x,y) -> x.getEntrenadores().compareTo(y.getEntrenadores()));
 
 
     }
